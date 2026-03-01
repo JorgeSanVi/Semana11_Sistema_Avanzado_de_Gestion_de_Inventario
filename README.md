@@ -1,38 +1,21 @@
-# Semana 11 – Sistema Avanzado de Gestión de Inventario (POO + JSON)
+# Semana 11 – Sistema de Gestión de Inventario (POO + JSON)
 
-## 1. Descripción
-En este proyecto desarrollé un sistema de inventario para una tienda usando **Programación Orientada a Objetos**.  
-El programa permite registrar productos, consultarlos y mantener la información guardada en un archivo **JSON**, para que los datos no se pierdan al cerrar el sistema.
+## Descripción
+En este proyecto desarrollé un sistema de inventario para una tienda usando POO. A través de un menú en consola puedo **agregar, buscar, actualizar, eliminar y mostrar** productos. Cada producto maneja datos básicos: **ID (único), nombre, cantidad y precio**.
 
-## 2. Relación con el tema de estudio (Semana 11)
-Este trabajo se basa en el contenido de la Semana 11 sobre **colecciones en Python**, aplicándolas en un caso real:
+## ¿Por qué usé JSON?
+En clase trabajamos el CRUD guardando la información en colecciones mientras el programa está ejecutándose. En mi caso, además de eso, usé **JSON** porque la guía pide **guardar y cargar** el inventario desde un archivo. Así, cuando cierro el programa, los productos **no se borraran**: se guardan en `data/inventario.json` y al volver a ejecutar el sistema se cargan automáticamente para continuar con el mismo inventario.
 
-- **Diccionario (`dict`)**: almacena los productos por **ID** para encontrarlos rápido.
-- **Conjunto (`set`)**: ayuda a evitar **IDs repetidos**.
-- **Lista (`list`)**: se usa para mostrar el inventario y devolver resultados de búsquedas.
+## Colecciones usadas
+- **Diccionario (`dict`)**: guardo los productos por ID, lo que ayuda a encontrarlos de una manera mnas rapida, sencilla y puedo modificarlos sin complicarme.  
+- **Conjunto (`set`)**: lo uso para asegurar que no existan IDs repetidos.  
+- **Lista (`list`)**: me sirve para mostrar el inventario completo y para presentar los resultados cuando busco por nombre.  
 
-## 3. Funcionalidades del sistema
-Desde el menú en consola se puede:
-1. **Añadir** productos (ID, nombre, cantidad, precio)
-2. **Eliminar** productos por ID
-3. **Actualizar** cantidad y/o precio
-4. **Buscar** por nombre (coincidencia parcial)
-5. **Mostrar** todo el inventario
-6. **Guardar** inventario en `data/inventario.json`
-0. **Salir** (guardando antes de cerrar)
+## Archivos del proyecto
+- `producto.py`: clase **Producto**  
+- `inventario.py`: clase **Inventario** (maneja las colecciones y el archivo JSON)  
+- `main.py`: menú e interacción con el usuario  
+- `data/inventario.json`: archivo donde queda guardado el inventario  
 
-## 4. Estructura del proyecto
-- `producto.py`: clase **Producto** (modelo del producto).
-- `inventario.py`: clase **Inventario** (gestiona colecciones y el archivo JSON).
-- `main.py`: menú interactivo (interfaz por consola).
-- `data/inventario.json`: archivo donde se guarda el inventario (persistencia).
-
-## 5. Cómo ejecutar
-1. Abre la carpeta del proyecto en VSCode.
-2. En la terminal ejecuta:
-   - `python main.py`
-3. Usa el menú para operar el inventario.
-
-## 6. Notas finales
-- Si `data/inventario.json` no existe, el sistema inicia con inventario vacío y lo crea al guardar.
-- Se incluyeron **comentarios en el código** para explicar la lógica y facilitar la revisión.
+## Ejecución
+`python main.py`
